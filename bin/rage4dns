@@ -1,0 +1,72 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * This file is part of the haphan/php-rage4-dns-api Library.
+ *
+ * (c) Ha Phan <thanhha.work@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+error_reporting(E_ALL);
+
+//CURL extension must installed to run this console
+if (!extension_loaded('curl') || !function_exists('curl_init')) {
+    die(<<<EOT
+cURL has to be enabled!
+EOT
+    );
+}
+
+
+function includeIfExists($file)
+{
+    if (file_exists($file)) {
+        return include $file;
+    }
+}
+
+//Bootstrap application with autoload
+if ((!$loader = includeIfExists(__DIR__ . '/../vendor/autoload.php')) &&
+    (!$loader = includeIfExists(__DIR__ . '/../../../autoload.php'))) {
+    die(<<<EOT
+You must set up the project dependencies, run the following commands:
+$ wget http://getcomposer.org/composer.phar
+OR
+$ curl -sS https://getcomposer.org/installer | php
+$ php composer.phar install --dev
+EOT
+    );
+}
+
+use Symfony\Component\Console\Application as BaseApplication;
+
+class Application extends BaseApplication{
+
+    private $logo = <<<LOGO
+  _____                  _  _     _____  _   _  _____
+ |  __ \                | || |   |  __ \| \ | |/ ____|
+ | |__) |__ _  __ _  ___| || |_  | |  | |  \| | (___
+ |  _  // _` |/ _` |/ _ \__   _| | |  | | . ` |\___ \
+ | | \ \ (_| | (_| |  __/  | |   | |__| | |\  |____) |
+ |_|  \_\__,_|\__, |\___|  |_|   |_____/|_| \_|_____/
+               __/ |
+              |___/
+
+LOGO;
+
+
+
+    public function getHelp()
+    {
+        return $this->logo . parent::getHelp();
+    }
+}
+
+$console = new Application();
+$console->getHelp();
+$console->setName('Rage4DNS :: Rage4 DNS API PHP 5.3+ Library');
+$console->run();
+
