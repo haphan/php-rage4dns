@@ -1,0 +1,28 @@
+{
+    "name": "haphan/php-rage4-dns-api",
+    "description": "Rage4 DNS API PHP 5.3+ Library",
+    "keywords" : ["Rage4", "Rage4 DNS", "DNS", "API"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ha Phan",
+            "email": "thanhha.work@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "ext-curl" : "*",
+        "symfony/console": "~2.4",
+        "guzzle/guzzle": "~3.8"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Haphan\\Rage4DNS\\": "src/"
+        }
+    },
+
+    "target-dir": "Haphan/Rage4DNS",
+
+    "bin" : ["bin/rage4dns"]
+}
