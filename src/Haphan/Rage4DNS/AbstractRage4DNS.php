@@ -13,6 +13,7 @@ namespace Haphan\Rage4DNS;
 
 use Guzzle\Http\Client;
 use Guzzle\Http\Message\Response;
+use Haphan\Rage4DNS\Entity\Status;
 
 abstract class AbstractRage4DNS
 {
@@ -79,11 +80,10 @@ abstract class AbstractRage4DNS
     }
 
     /**
-     * Process API Call
-     *
      * @param array $headers
      * @param array $options
-     * @return array|Response|null
+     * @return array|null
+     * @throws \Exception
      */
     public function processQuery($headers = array(), $options = array())
     {
@@ -96,7 +96,30 @@ abstract class AbstractRage4DNS
         /**@var Response */
         $response = $this->client->send($request);
 
-        return $response;
+        if($response->isSuccessful())
+        {
+
+            return $response->json();
+
+        }else
+            throw new \Exception("Fail to complete the request. Server returns code {$response->getStatusCode()}");
+
+    }
+
+    /**
+     * Rage4 DNS does not properly return error code
+     *
+     * @param $response
+     * @return null
+     */
+    protected function getStatusMessage($response)
+    {
+        if(is_array($response) && isset($response['status']))
+        {
+            return Status::createFromArray($response['status']);
+        }
+
+        else return null;
     }
 
 }

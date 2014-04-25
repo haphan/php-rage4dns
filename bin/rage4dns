@@ -11,6 +11,7 @@
  */
 
 error_reporting(E_ALL);
+ini_set('display_errors', 'true');
 
 //CURL extension must installed to run this console
 if (!extension_loaded('curl') || !function_exists('curl_init')) {
@@ -42,6 +43,7 @@ EOT
 }
 
 use Symfony\Component\Console\Application as BaseApplication;
+use Haphan\Rage4DNS\Command;
 
 class Application extends BaseApplication{
 
@@ -57,8 +59,6 @@ class Application extends BaseApplication{
 
 LOGO;
 
-
-
     public function getHelp()
     {
         return $this->logo . parent::getHelp();
@@ -68,5 +68,12 @@ LOGO;
 $console = new Application();
 $console->getHelp();
 $console->setName('Rage4DNS :: Rage4 DNS API PHP 5.3+ Library');
+$console->add(new Command\Domains\GetAllCommand());
+$console->add(new Command\Domains\GetByIDCommand());
+$console->add(new Command\Domains\GetByNameCommand());
+$console->add(new Command\Domains\CreateDomainCommand());
+$console->add(new Command\Domains\CreateDomainVanityCommand());
+$console->add(new Command\Domains\DeleteDomainCommand());
+$console->add(new Command\Domains\UpdateDomainCommand());
 $console->run();
 
