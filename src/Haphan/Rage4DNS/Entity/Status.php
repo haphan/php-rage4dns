@@ -3,7 +3,7 @@
 namespace Haphan\Rage4DNS\Entity;
 
 
-class Status
+class Status implements TableRowInterface
 {
     private $status;
     private $id;
@@ -58,12 +58,22 @@ class Status
         return $this;
     }
 
-    public static function getColumnHeaders()
+    /**
+     * Implements TableRowInterface
+     *
+     * @return array
+     */
+    public static function getTableHeaders()
     {
         return array('Status', 'ID', 'Error');
     }
 
-    public function toArray()
+    /**
+     * Implements TableRowInterface
+     *
+     * @return array
+     */
+    public function getTableRow()
     {
         return array($this->status ? 'true' : 'false', $this->id, $this->error);
     }

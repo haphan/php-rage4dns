@@ -3,7 +3,7 @@
 namespace Haphan\Rage4DNS\Entity;
 
 
-class Domain
+class Domain implements TableRowInterface
 {
     private $id;
     private $name;
@@ -99,7 +99,12 @@ class Domain
         );
     }
 
-    public function toArray()
+    /**
+     * Implements TableRowInterface
+     *
+     * @return array
+     */
+    public function getTableRow()
     {
         return array(
             $this->id,
@@ -110,7 +115,12 @@ class Domain
         );
     }
 
-    public static function getColumnHeaders()
+    /**
+     * Implements TableRowInterface
+     *
+     * @return array
+     */
+    public static function getTableHeaders()
     {
         return array('ID', 'Name', 'Owner Email', 'Type', 'Subnet Mask');
     }
