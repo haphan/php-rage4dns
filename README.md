@@ -5,6 +5,11 @@ This PHP5.3+ library helps you to interact with the [Rage4 DNS API](http://gbsho
 
 >The **Rage4 DNS** is fast, reliable and cost effective authoritative name servers service designed for high availability and performance. [Read more](http://rage4.com/Home/DNS)
 
+Who use this?
+------------
+- **PHP Developers** who wish to integrate their products or services with Rage4 DNS
+- **System admins** who wish to automate tasks with Rage4DNS 
+
 Installation
 ------------
 
