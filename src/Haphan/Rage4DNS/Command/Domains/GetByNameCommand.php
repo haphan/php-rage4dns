@@ -18,7 +18,7 @@ class GetByNameCommand extends Command
     {
         $this
             ->setName('domains:name')
-            ->setDescription('Get domain by name')
+            ->setDescription('Get domain by name.')
             ->addArgument('name', InputArgument::REQUIRED, 'Name of domain. For example: abc.com')
             ->addOption('credentials', null, InputOption::VALUE_REQUIRED,
                 'If set, the yaml file which contains your credentials', Command::DEFAULT_CREDENTIALS_FILE);
@@ -30,10 +30,10 @@ class GetByNameCommand extends Command
 
         $domain = $rage4->domains->getByName($input->getArgument('name'));
 
-        $content[0] =  $domain->toArray();
+        $content[0] =  $domain->getTableRow();
 
         $this->renderTable(
-            Domain::getColumnHeaders(),
+            Domain::getTableHeaders(),
             $content,
             $output
         );

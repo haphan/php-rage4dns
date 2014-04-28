@@ -19,7 +19,7 @@ class CreateDomainCommand extends Command
     {
         $this
             ->setName('domains:create')
-            ->setDescription('Create regular domain')
+            ->setDescription('Create regular domain.')
             ->addArgument('name', InputArgument::REQUIRED, 'Name of domain. For example: abc.com')
             ->addArgument('email', InputArgument::REQUIRED, 'Email of owner.')
             ->addOption('credentials', null, InputOption::VALUE_REQUIRED,
@@ -32,10 +32,10 @@ class CreateDomainCommand extends Command
 
         $status = $rage4->domains->createDomain($input->getArgument('name'), $input->getArgument('email'));
 
-        $content[] = $status->toArray();
+        $content[] = $status->getTableRow();
 
         $this->renderTable(
-            Status::getColumnHeaders(),
+            Status::getTableHeaders(),
             $content,
             $output
         );

@@ -1,8 +1,11 @@
 <?php
 
-namespace Haphan\Rage4DNS\Command\Domains;
+namespace Haphan\Rage4DNS\Command\Records;
 
 use Haphan\Rage4DNS\Command\Command;
+use Haphan\Rage4DNS\Entity\Record;
+use Haphan\Rage4DNS\Entity\RecordType;
+use Haphan\Rage4DNS\Entity\Region;
 use Haphan\Rage4DNS\Entity\Status;
 use Symfony\Component\Console\Helper\TableHelper;
 use Symfony\Component\Console\Input\InputArgument;
@@ -11,26 +14,26 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 
-class DeleteDomainCommand extends Command
+class DeleteRecordCommand extends Command
 {
 
     protected function configure()
     {
+        parent::configure();
+
         $this
-            ->setName('domains:delete')
-            ->setDescription('Delete a domain.')
-            ->addArgument('id', InputArgument::REQUIRED, 'ID of domain')
-            ->addOption('credentials', null, InputOption::VALUE_REQUIRED,
-                'If set, the yaml file which contains your credentials', Command::DEFAULT_CREDENTIALS_FILE);
+            ->setName('records:delete')
+            ->setDescription('Delete a record.');
+
+        $this->addArgument('id', InputArgument::REQUIRED, 'Record ID.');
+
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $rage4 = $this->getRage4DNS($input->getOption('credentials'));
 
-        $status = $rage4->domains->deleteDomain(
-            $input->getArgument('id')
-        );
+        $status = $rage4->records->deleteRecord($input->getArgument('id'));
 
         $content[] = $status->getTableRow();
 

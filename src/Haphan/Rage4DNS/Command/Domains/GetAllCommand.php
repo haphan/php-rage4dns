@@ -17,7 +17,7 @@ class GetAllCommand extends Command
     {
         $this
             ->setName('domains:all')
-            ->setDescription('List all registered domains')
+            ->setDescription('List all registered domains.')
             ->addOption('credentials', null, InputOption::VALUE_REQUIRED,
                 'If set, the yaml file which contains your credentials', Command::DEFAULT_CREDENTIALS_FILE);
     }
@@ -32,9 +32,9 @@ class GetAllCommand extends Command
         $content = array();
 
         foreach ($domains as $domain) {
-            $content[] = $domain->toArray();
+            $content[] = $domain->getTableRow();
         }
 
-        $this->renderTable(Domain::getColumnHeaders(), $content, $output);
+        $this->renderTable(Domain::getTableHeaders(), $content, $output);
     }
 }

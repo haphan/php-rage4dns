@@ -11,14 +11,14 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 
-class DeleteDomainCommand extends Command
+class ExportCommand extends Command
 {
 
     protected function configure()
     {
         $this
-            ->setName('domains:delete')
-            ->setDescription('Delete a domain.')
+            ->setName('domains:export')
+            ->setDescription('Export zones as BIND compatible file format')
             ->addArgument('id', InputArgument::REQUIRED, 'ID of domain')
             ->addOption('credentials', null, InputOption::VALUE_REQUIRED,
                 'If set, the yaml file which contains your credentials', Command::DEFAULT_CREDENTIALS_FILE);
@@ -28,16 +28,10 @@ class DeleteDomainCommand extends Command
     {
         $rage4 = $this->getRage4DNS($input->getOption('credentials'));
 
-        $status = $rage4->domains->deleteDomain(
+        $zone = $rage4->domains->exportZone(
             $input->getArgument('id')
         );
 
-        $content[] = $status->getTableRow();
-
-        $this->renderTable(
-            Status::getTableHeaders(),
-            $content,
-            $output
-        );
+        $output->writeln($zone);
     }
 }

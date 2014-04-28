@@ -19,7 +19,7 @@ class CreateDomainVanityCommand extends Command
     {
         $this
             ->setName('domains:createVanity')
-            ->setDescription('Create regular domain with vanity name server')
+            ->setDescription('Create regular domain with vanity name server.')
             ->addArgument('name', InputArgument::REQUIRED, 'Name of domain. For example: abc.com')
             ->addArgument('email', InputArgument::REQUIRED, 'Email of owner.')
             ->addArgument('nsname', InputArgument::REQUIRED, 'Vanity NS domain name.')
@@ -39,10 +39,10 @@ class CreateDomainVanityCommand extends Command
             $input->getArgument('nsprefix')
         );
 
-        $content[] = $status->toArray();
+        $content[] = $status->getTableRow();
 
         $this->renderTable(
-            Status::getColumnHeaders(),
+            Status::getTableHeaders(),
             $content,
             $output
         );

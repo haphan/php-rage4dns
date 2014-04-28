@@ -42,10 +42,10 @@ class UpdateDomainCommand extends Command
             $input->getArgument('enablevanity')
         );
 
-        $content[] = $status->toArray();
+        $content[] = $status->getTableRow();
 
         $this->renderTable(
-            Status::getColumnHeaders(),
+            Status::getTableHeaders(),
             $content,
             $output
         );

@@ -4,6 +4,7 @@ namespace Haphan\Rage4DNS\Command;
 
 use Haphan\Rage4DNS\Rage4DNS;
 use Symfony\Component\Console\Command\Command as BaseCommand;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\Output;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
@@ -42,6 +43,14 @@ class Command extends BaseCommand
 
         return new Rage4DNS(new Credentials($credentials['email'], $credentials['api_key']));
 
+    }
+
+    protected function configure()
+    {
+        $this->addOption('credentials', null, InputOption::VALUE_REQUIRED,
+            'If set, the yaml file which contains your credentials', self::DEFAULT_CREDENTIALS_FILE)
+            ->addOption('layout', null , InputOption::VALUE_REQUIRED,
+                'Table layout style: default|borderless|compact', 'default');
     }
 
     protected function renderTable($headers, array $content, OutputInterface $output)

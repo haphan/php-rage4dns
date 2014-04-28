@@ -18,7 +18,7 @@ class GetByIDCommand extends Command
     {
         $this
             ->setName('domains:id')
-            ->setDescription('Get domain by id')
+            ->setDescription('Get domain by id.')
             ->addArgument('id', InputArgument::REQUIRED, 'ID of domain')
             ->addOption('credentials', null, InputOption::VALUE_REQUIRED,
                 'If set, the yaml file which contains your credentials', Command::DEFAULT_CREDENTIALS_FILE);
@@ -30,10 +30,10 @@ class GetByIDCommand extends Command
 
         $domain = $rage4->domains->getById($input->getArgument('id'));
 
-        $content[0] =  $domain->toArray();
+        $content[0] =  $domain->getTableRow();
 
         $this->renderTable(
-            Domain::getColumnHeaders(),
+            Domain::getTableHeaders(),
             $content,
             $output
         );
