@@ -289,13 +289,13 @@ $ php bin/rage4dns usage:global
 Credits
 -------
 * [Ha Phan](https://github.com/haphan)
-* [All contributors](https://github.com/haphan/php-rage4-dns-api/contributors)
+* [All contributors](https://github.com/haphan/php-rage4dns/contributors)
 
 
 Contributing
 ------------
 
-Please see [CONTRIBUTING](https://github.com/haphan/php-rage4-dns-api/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/haphan/php-rage4dns/blob/master/CONTRIBUTING.md) for details.
 
 Acknowledgments
 ---------------

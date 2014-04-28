@@ -1,5 +1,5 @@
 {
-    "name": "haphan/php-rage4-dns-api",
+    "name": "haphan/php-rage4dns",
     "description": "Rage4 DNS API PHP 5.3+ Library",
     "keywords" : ["Rage4", "Rage4 DNS", "DNS", "API"],
     "license": "MIT",
