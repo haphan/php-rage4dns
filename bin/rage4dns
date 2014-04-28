@@ -48,14 +48,13 @@ use Haphan\Rage4DNS\Command;
 class Application extends BaseApplication{
 
     private $logo = <<<LOGO
-  _____                  _  _     _____  _   _  _____
- |  __ \                | || |   |  __ \| \ | |/ ____|
- | |__) |__ _  __ _  ___| || |_  | |  | |  \| | (___
- |  _  // _` |/ _` |/ _ \__   _| | |  | | . ` |\___ \
- | | \ \ (_| | (_| |  __/  | |   | |__| | |\  |____) |
- |_|  \_\__,_|\__, |\___|  |_|   |_____/|_| \_|_____/
-               __/ |
-              |___/
+
+  ____                  _  _     ____  _   _ ____
+ |  _ \ __ _  __ _  ___| || |   |  _ \| \ | / ___|
+ | |_) / _` |/ _` |/ _ \ || |_  | | | |  \| \___ \
+ |  _ < (_| | (_| |  __/__   _| | |_| | |\  |___) |
+ |_| \_\__,_|\__, |\___|  |_|   |____/|_| \_|____/
+             |___/
 
 LOGO;
 
@@ -67,7 +66,10 @@ LOGO;
 
 $console = new Application();
 $console->getHelp();
-$console->setName('Rage4DNS :: Rage4 DNS API PHP 5.3+ Library');
+$console->setName('Rage4DNS :: Console Tool and PHP 5.3+ Library');
+$console->setVersion('1.0');
+
+//Domain related commands
 $console->add(new Command\Domains\GetAllCommand());
 $console->add(new Command\Domains\GetByIDCommand());
 $console->add(new Command\Domains\GetByNameCommand());
@@ -75,5 +77,20 @@ $console->add(new Command\Domains\CreateDomainCommand());
 $console->add(new Command\Domains\CreateDomainVanityCommand());
 $console->add(new Command\Domains\DeleteDomainCommand());
 $console->add(new Command\Domains\UpdateDomainCommand());
+$console->add(new Command\Domains\ExportCommand());
+
+//Usage related commands
+$console->add(new Command\Usage\GlobalUsageCommand());
+$console->add(new Command\Usage\DomainUsageCommand());
+
+//Records related commands
+$console->add(new Command\Records\GetTypesCommand());
+$console->add(new Command\Records\GetRegionsCommand());
+$console->add(new Command\Records\GetRecordsCommand());
+$console->add(new Command\Records\CreateRecordCommand());
+$console->add(new Command\Records\DeleteRecordCommand());
+$console->add(new Command\Records\UpdateRecordCommand());
+
+//Run console
 $console->run();
 
