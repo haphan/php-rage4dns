@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2c7ac54b4047f0baffdc463dcfd9163b",
+    "hash": "f14c4657a0ffcc8278af40fafe40ff11",
     "packages": [
         {
             "name": "guzzle/guzzle",
@@ -99,17 +99,17 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "ef20f1f58d7f693ee888353962bd2db336e3bbcb"
+                "reference": "2e452005b1e1d003d23702d227e23614679eb5ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/ef20f1f58d7f693ee888353962bd2db336e3bbcb",
-                "reference": "ef20f1f58d7f693ee888353962bd2db336e3bbcb",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/2e452005b1e1d003d23702d227e23614679eb5ca",
+                "reference": "2e452005b1e1d003d23702d227e23614679eb5ca",
                 "shasum": ""
             },
             "require": {
@@ -150,21 +150,21 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-01 17:35:04"
+            "time": "2014-04-27 13:34:57"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "4708b8cd41984a5ba29fe7dd40716f7f761ac501"
+                "reference": "e539602e5455aa086c0e81e604745af7789e4d8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/4708b8cd41984a5ba29fe7dd40716f7f761ac501",
-                "reference": "4708b8cd41984a5ba29fe7dd40716f7f761ac501",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/e539602e5455aa086c0e81e604745af7789e4d8a",
+                "reference": "e539602e5455aa086c0e81e604745af7789e4d8a",
                 "shasum": ""
             },
             "require": {
@@ -206,21 +206,21 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2014-02-11 13:52:09"
+            "time": "2014-04-16 10:34:31"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "77a41c2835ab7cfe8bf6d15e25d3af8f3eb3bacd"
+                "reference": "65539ecde838f9c0d18b006b2101e3deb4b5c9ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/77a41c2835ab7cfe8bf6d15e25d3af8f3eb3bacd",
-                "reference": "77a41c2835ab7cfe8bf6d15e25d3af8f3eb3bacd",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/65539ecde838f9c0d18b006b2101e3deb4b5c9ff",
+                "reference": "65539ecde838f9c0d18b006b2101e3deb4b5c9ff",
                 "shasum": ""
             },
             "require": {
@@ -255,7 +255,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-12 18:29:58"
+            "time": "2014-04-18 20:37:09"
         }
     ],
     "packages-dev": [
