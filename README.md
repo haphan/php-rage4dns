@@ -2,6 +2,7 @@ Rage4 DNS - Console Tool & PHP Library
 ====
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5f075374-6b2c-485b-91f3-52b56f39e480/mini.png)](https://insight.sensiolabs.com/projects/5f075374-6b2c-485b-91f3-52b56f39e480)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/haphan/php-rage4dns/badges/quality-score.png?s=b0c6a3d9e6b82cd3b6779dcc795c142ff93719ab)](https://scrutinizer-ci.com/g/haphan/php-rage4dns/)
 
 
 
