@@ -9,7 +9,6 @@ namespace Haphan\Rage4DNS\Command\Usage;
 
 use Haphan\Rage4DNS\Command\Command;
 use Haphan\Rage4DNS\Entity\GlobalUsageHistory;
-use Symfony\Component\Console\Helper\TableHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

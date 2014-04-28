@@ -4,7 +4,6 @@ namespace Haphan\Rage4DNS\Command\Records;
 
 use Haphan\Rage4DNS\Command\Command;
 use Haphan\Rage4DNS\Entity\Region;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

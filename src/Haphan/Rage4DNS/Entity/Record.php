@@ -186,7 +186,7 @@ class Record implements TableRowInterface
      *
      * @return Record
      */
-    public function setIsActive($isActive)
+    public function setActive($isActive)
     {
         $this->isActive = $isActive;
 
@@ -198,7 +198,7 @@ class Record implements TableRowInterface
      *
      * @return boolean
      */
-    public function getIsActive()
+    public function getActive()
     {
         return $this->isActive;
     }
@@ -530,7 +530,7 @@ class Record implements TableRowInterface
         $r->setFailoverEnabled($array['failover_enabled']);
         $r->setFailoverContent($array['failover_content']);
         $r->setFailoverWithdraw($array['failover_withdraw']);
-        $r->setIsActive($array['is_active']);
+        $r->setActive($array['is_active']);
         $r->setUdpLimit($array['udp_limit']);
 
         return $r;
