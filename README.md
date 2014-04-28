@@ -1,6 +1,11 @@
 Rage4 DNS - Console Tool & PHP Library
 ====
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/5f075374-6b2c-485b-91f3-52b56f39e480/mini.png)](https://insight.sensiolabs.com/projects/5f075374-6b2c-485b-91f3-52b56f39e480)
+
+
+
+
 This PHP5.3+ library helps you to interact with the [Rage4 DNS API](http://gbshouse.uservoice.com/knowledgebase/articles/109834-rage4-dns-developers-api) via PHP or Console.
 
 >The **Rage4 DNS** is fast, reliable and cost effective authoritative name servers service designed for high availability and performance. [Read more](http://rage4.com/Home/DNS)
