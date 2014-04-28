@@ -11,6 +11,7 @@
 
 namespace Haphan\Rage4DNS;
 
+use Guzzle\Common\Exception\RuntimeException;
 use Guzzle\Http\Client;
 use Guzzle\Http\Message\Response;
 use Haphan\Rage4DNS\Entity\Status;
@@ -99,7 +100,12 @@ abstract class AbstractRage4DNS
         if($response->isSuccessful())
         {
 
-            return $response->json();
+            try{
+                return $response->json();
+            }catch(RuntimeException $cannotParseJsonException)
+            {
+                return $response->getBody(true);
+            }
 
         }else
             throw new \Exception("Fail to complete the request. Server returns code {$response->getStatusCode()}");

@@ -27,6 +27,7 @@ class Domains extends AbstractRage4DNS
     const URL_CREATE_REVERSE_IPV6 = 'createreversedomain6';
     const URL_UPDATE_DOMAIN = 'updatedomain';
     const URL_DELETE_DOMAIN = 'deletedomain';
+    const URL_EXPORT_ZONE = 'exportzonefile';
 
 
     public function __construct(Credentials $credentials)
@@ -229,6 +230,19 @@ class Domains extends AbstractRage4DNS
         ));
 
         return Status::createFromArray($response);
+    }
+
+    /**
+     * Export's zone as BIND compatible file format
+     *
+     * @param $id
+     * @return string|null
+     */
+    public function exportZone($id)
+    {
+        $this->apiUrl = sprintf("%s/%s/%d/", $this->apiUrl, self::URL_EXPORT_ZONE, $id);
+
+        return $response = $this->processQuery();
     }
 
 }

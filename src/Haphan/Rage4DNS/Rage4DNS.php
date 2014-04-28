@@ -10,6 +10,10 @@ class Rage4DNS extends AbstractRage4DNS
     /**@var API\Domains*/
     public $domains;
 
+    /**@var API\Usage */
+    public $usage;
+
+    /**@var API\Records*/
     public $records;
 
     protected $credentials;
@@ -19,6 +23,8 @@ class Rage4DNS extends AbstractRage4DNS
         parent::__construct($credentials);
 
         $this->domains = new API\Domains($credentials);
+        $this->usage = new API\Usage($credentials);
+        $this->records = new API\Records($credentials);
 
     }
 }
