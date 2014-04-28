@@ -2,7 +2,11 @@
 
 namespace Haphan\Rage4DNS;
 
-
+/**
+ * Class Rage4DNS
+ *
+ * @package Haphan\Rage4DNS
+ */
 class Rage4DNS extends AbstractRage4DNS
 {
     const VERSION = '1.0';
@@ -18,6 +22,11 @@ class Rage4DNS extends AbstractRage4DNS
 
     protected $credentials;
 
+    /**
+     * Constructor
+     *
+     * @param Credentials $credentials
+     */
     public function __construct(Credentials $credentials)
     {
         parent::__construct($credentials);

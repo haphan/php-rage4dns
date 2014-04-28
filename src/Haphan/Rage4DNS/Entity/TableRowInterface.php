@@ -17,6 +17,17 @@ namespace Haphan\Rage4DNS\Entity;
  */
 interface TableRowInterface
 {
+    /**
+     * Returns array of table columns
+     *
+     * @return array
+     */
     public static function getTableHeaders();
+
+    /**
+     * Returns array of table rows.
+     *
+     * @return array
+     */
     public function getTableRow();
 }

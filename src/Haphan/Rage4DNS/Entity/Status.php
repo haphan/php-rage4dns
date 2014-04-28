@@ -53,6 +53,13 @@ class Status implements TableRowInterface
         return $this->status;
     }
 
+    /**
+     * Set Status
+     *
+     * @param string $status
+     *
+     * @return Status $this
+     */
     public function setStatus($status)
     {
         $this->status = $status;
@@ -60,12 +67,24 @@ class Status implements TableRowInterface
         return $this;
     }
 
+    /**
+     * Return ID
+     *
+     * @return int
+     */
     public function getId()
     {
         return $this->id;
     }
 
 
+    /**
+     * Set ID
+     *
+     * @param int $id
+     *
+     * @return Status $this
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -73,11 +92,23 @@ class Status implements TableRowInterface
         return $this;
     }
 
+    /**
+     * Returns Error
+     *
+     * @return string
+     */
     public function getError()
     {
         return $this->error;
     }
 
+    /**
+     * Set Error
+     *
+     * @param string $error
+     *
+     * @return Status $this
+     */
     public function setError($error)
     {
         $this->error = $error;

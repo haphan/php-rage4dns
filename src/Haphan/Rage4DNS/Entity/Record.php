@@ -7,7 +7,11 @@
 
 namespace Haphan\Rage4DNS\Entity;
 
-
+/**
+ * Class Record represents a dns record.
+ *
+ * @package Haphan\Rage4DNS\Entity
+ */
 class Record implements TableRowInterface
 {
     private $id;
@@ -16,18 +20,39 @@ class Record implements TableRowInterface
     private $type;
     private $ttl;
     private $priority;
-    private $domain_id;
-    private $geo_region_id;
-    private $geo_lat;
-    private $geo_long;
-    private $geo_lock;
+    private $domainID;
+    private $geoRegionID;
+    private $geoLat;
+    private $geoLong;
+    private $geoLock;
+    private $failoverEnabled = false;
+    private $failoverContent = null;
+    private $failoverWithdraw = false;
+    private $isActive = true;
+    private $udpLimit = false;
+
 
     /**
-     * @param mixed $geo_lock
+     * Empty constructor.
+     * Due to this entity holds many properties, it is best not to use a long constructor with 20+ parameters
      */
-    public function setGeoLock($geo_lock)
+    public function __construct()
     {
-        $this->geo_lock = $geo_lock;
+
+    }
+
+    /**
+     * Set Geo Lock
+     *
+     * @param boolean $geoLock
+     *
+     * @return Record $this
+     */
+    public function setGeoLock($geoLock)
+    {
+        $this->geoLock = $geoLock;
+
+        return $this;
     }
 
     /**
@@ -35,26 +60,17 @@ class Record implements TableRowInterface
      */
     public function getGeoLock()
     {
-        return $this->geo_lock;
-    }
-    private $failover_enabled = false;
-    private $failover_content = null;
-    private $failover_withdraw = false;
-    private $is_active = true;
-    private $udp_limit = false;
-
-    public function __construct()
-    {
-
+        return $this->geoLock;
     }
 
     /**
-     * @param $failover_withdraw
+     * @param boolean $failoverWithdraw
+     *
      * @return Record
      */
-    public function setFailoverWithdraw($failover_withdraw)
+    public function setFailoverWithdraw($failoverWithdraw)
     {
-        $this->failover_withdraw = $failover_withdraw;
+        $this->failoverWithdraw = $failoverWithdraw;
 
         return $this;
     }
@@ -64,69 +80,87 @@ class Record implements TableRowInterface
      */
     public function getFailoverWithdraw()
     {
-        return $this->failover_withdraw;
+        return $this->failoverWithdraw;
     }
 
     /**
-     * @param $geo_lat
-     * @return Record
+     * Set Geo Lat
+     *
+     * @param long $geoLat
+     *
+     * @return Record $this
      */
-    public function setGeoLat($geo_lat)
+    public function setGeoLat($geoLat)
     {
-        $this->geo_lat = $geo_lat;
+        $this->geoLat = $geoLat;
 
         return $this;
     }
 
     /**
-     * @return mixed
+     * Returns geo lat
+     *
+     * @return long
      */
     public function getGeoLat()
     {
-        return $this->geo_lat;
+        return $this->geoLat;
     }
 
     /**
-     * @param $geo_long
-     * @return Record
+     * Set Geo Long
+     *
+     * @param long $geoLong
+     *
+     * @return Record $this
      */
-    public function setGeoLong($geo_long)
+    public function setGeoLong($geoLong)
     {
-        $this->geo_long = $geo_long;
+        $this->geoLong = $geoLong;
 
         return $this;
     }
 
     /**
-     * @return mixed
+     * Returns geo long
+     *
+     * @return long
      */
     public function getGeoLong()
     {
-        return $this->geo_long;
+        return $this->geoLong;
     }
 
     /**
-     * @param $geo_region_id
-     * @return Record
+     * Set Geo Region ID
+     *
+     * @param int $geoRegionID
+     *
+     * @return Record $this
      */
-    public function setGeoRegionId($geo_region_id)
+    public function setGeoRegionId($geoRegionID)
     {
-        $this->geo_region_id = $geo_region_id;
+        $this->geoRegionID = $geoRegionID;
 
         return $this;
     }
 
     /**
-     * @return mixed
+     * Returns Region ID
+     *
+     * @return int
      */
     public function getGeoRegionId()
     {
-        return $this->geo_region_id;
+        return $this->geoRegionID;
     }
 
     /**
-     * @param $id
-     * @return Record
+     * Set ID
+     *
+     * @param int $id
+     *
+     * @return Record $this
      */
     public function setId($id)
     {
@@ -136,7 +170,9 @@ class Record implements TableRowInterface
     }
 
     /**
-     * @return mixed
+     * Return ID
+     *
+     * @return int
      */
     public function getId()
     {
@@ -144,46 +180,59 @@ class Record implements TableRowInterface
     }
 
     /**
-     * @param $is_active
+     * Set isActive
+     *
+     * @param boolean $isActive
+     *
      * @return Record
      */
-    public function setIsActive($is_active)
+    public function setIsActive($isActive)
     {
-        $this->is_active = $is_active;
+        $this->isActive = $isActive;
 
         return $this;
     }
 
     /**
+     * Returns true if active
+     *
      * @return boolean
      */
     public function getIsActive()
     {
-        return $this->is_active;
+        return $this->isActive;
     }
 
     /**
-     * @param $udp_limit
-     * @return Record
+     * Set UDP limit
+     *
+     * @param string $udpLimit
+     *
+     * @return Record $this
      */
-    public function setUdpLimit($udp_limit)
+    public function setUdpLimit($udpLimit)
     {
-        $this->udp_limit = $udp_limit;
+        $this->udpLimit = $udpLimit;
 
         return $this;
     }
 
     /**
+     * Return UDP limit
+     *
      * @return boolean
      */
     public function getUdpLimit()
     {
-        return $this->udp_limit;
+        return $this->udpLimit;
     }
 
     /**
-     * @param $content
-     * @return Record
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return Record $this
      */
     public function setContent($content)
     {
@@ -193,7 +242,9 @@ class Record implements TableRowInterface
     }
 
     /**
-     * @return mixed
+     * Returns record content
+     *
+     * @return string
      */
     public function getContent()
     {
@@ -201,64 +252,82 @@ class Record implements TableRowInterface
     }
 
     /**
-     * @param $domain_id
+     * Set Domain ID
+     *
+     * @param int $domainID
+     *
      * @return Record
      */
-    public function setDomainId($domain_id)
+    public function setDomainId($domainID)
     {
-        $this->domain_id = $domain_id;
+        $this->domainID = $domainID;
 
         return $this;
     }
 
     /**
-     * @return mixed
+     * Returns domain ID
+     *
+     * @return int
      */
     public function getDomainId()
     {
-        return $this->domain_id;
+        return $this->domainID;
     }
 
     /**
-     * @param $failover_content
-     * @return Record
+     * Set Fail-over content
+     *
+     * @param string $failoverContent
+     *
+     * @return Record $this
      */
-    public function setFailoverContent($failover_content)
+    public function setFailoverContent($failoverContent)
     {
-        $this->failover_content = $failover_content;
+        $this->failoverContent = $failoverContent;
 
         return $this;
     }
 
     /**
-     * @return null
+     * Returns fail-over content
+     *
+     * @return string|mixed
      */
     public function getFailoverContent()
     {
-        return $this->failover_content;
+        return $this->failoverContent;
     }
 
     /**
-     * @param $failover_enabled
-     * @return Record
+     * Set true|false to fail-over
+     *
+     * @param boolean $failoverEnable
+     *
+     * @return Record $this
      */
-    public function setFailoverEnabled($failover_enabled)
+    public function setFailoverEnabled($failoverEnable)
     {
-        $this->failover_enabled = $failover_enabled;
+        $this->failoverEnabled = $failoverEnable;
 
         return $this;
     }
 
     /**
+     * Return true or false of fail-over is enabled.
+     *
      * @return boolean
      */
     public function getFailoverEnabled()
     {
-        return $this->failover_enabled;
+        return $this->failoverEnabled;
     }
 
     /**
-     * @param $name
+     * Set name
+     *
+     * @param string $name
+     *
      * @return Record
      */
     public function setName($name)
@@ -269,7 +338,9 @@ class Record implements TableRowInterface
     }
 
     /**
-     * @return mixed
+     * Returns name
+     *
+     * @return string
      */
     public function getName()
     {
@@ -277,7 +348,10 @@ class Record implements TableRowInterface
     }
 
     /**
-     * @param $priority
+     * Set priority.
+     *
+     * @param int $priority
+     *
      * @return Record
      */
     public function setPriority($priority)
@@ -288,7 +362,9 @@ class Record implements TableRowInterface
     }
 
     /**
-     * @return null
+     * Returns priority.
+     *
+     * @return int
      */
     public function getPriority()
     {
@@ -296,8 +372,11 @@ class Record implements TableRowInterface
     }
 
     /**
-     * @param $ttl
-     * @return Record
+     * Set TTL
+     *
+     * @param int $ttl
+     *
+     * @return Record $this
      */
     public function setTtl($ttl)
     {
@@ -315,7 +394,10 @@ class Record implements TableRowInterface
     }
 
     /**
-     * @param $type
+     * Set record type. See records:types for values.
+     *
+     * @param int $type
+     *
      * @return Record
      */
     public function setType($type)
@@ -326,7 +408,9 @@ class Record implements TableRowInterface
     }
 
     /**
-     * @return mixed
+     * Returns type
+     *
+     * @return int
      */
     public function getType()
     {
@@ -336,12 +420,13 @@ class Record implements TableRowInterface
     /**
      * Implements TableRowInterface
      *
+     * @param bool $full
+     *
      * @return array
      */
     public function getTableRow($full = false)
     {
-        if(true === $full)
-        {
+        if (true === $full) {
             return array(
                 $this->id,
                 $this->name,
@@ -349,20 +434,19 @@ class Record implements TableRowInterface
                 $this->type,
                 $this->ttl,
                 $this->priority,
-                $this->domain_id,
-                $this->geo_region_id,
-                $this->geo_lat,
-                $this->geo_long,
-                $this->geo_lock ? 'true' : 'false',
-                $this->failover_enabled ? 'true' : 'false',
-                $this->failover_content,
-                $this->failover_withdraw ? 'true' : 'false',
-                $this->is_active ? 'true' : 'false',
-                $this->udp_limit ? 'true' : 'false'
+                $this->domainID,
+                $this->geoRegionID,
+                $this->geoLat,
+                $this->geoLong,
+                $this->geoLock ? 'true' : 'false',
+                $this->failoverEnabled ? 'true' : 'false',
+                $this->failoverContent,
+                $this->failoverWithdraw ? 'true' : 'false',
+                $this->isActive ? 'true' : 'false',
+                $this->udpLimit ? 'true' : 'false'
 
             );
-        }else
-        {
+        } else {
             return array(
                 $this->id,
                 $this->name,
@@ -370,8 +454,8 @@ class Record implements TableRowInterface
                 $this->type,
                 $this->ttl,
                 $this->priority,
-                $this->geo_region_id,
-                $this->is_active ? 'true' : 'false'
+                $this->geoRegionID,
+                $this->isActive ? 'true' : 'false'
             );
         }
 
@@ -380,28 +464,54 @@ class Record implements TableRowInterface
     /**
      * Implements TableRowInterface
      *
+     * @param bool $full
+     *
      * @return array
      */
     public static function getTableHeaders($full = false)
     {
 
-        if(true === $full)
-        {
+        if (true === $full) {
             return array(
-                'ID','Name','Content','Type', 'TTL',
-                'Priority','Domain','Region', 'Geo Lat', 'Geo Long',
-                'Geo Lock','FO','FO Content','FO Withdraw', 'Active',
+                'ID',
+                'Name',
+                'Content',
+                'Type',
+                'TTL',
+                'Priority',
+                'Domain',
+                'Region',
+                'Geo Lat',
+                'Geo Long',
+                'Geo Lock',
+                'FO',
+                'FO Content',
+                'FO Withdraw',
+                'Active',
                 'UDP Limit'
             );
-        }else{
+        } else {
             return array(
-                'ID','Name','Content','Type', 'TTL',
-                'Priority', 'Region', 'Active'
+                'ID',
+                'Name',
+                'Content',
+                'Type',
+                'TTL',
+                'Priority',
+                'Region',
+                'Active'
             );
         }
 
     }
 
+    /**
+     * Create Record instance from array.
+     *
+     * @param array $array
+     *
+     * @return Record
+     */
     public static function createFromArray($array)
     {
         $r = new Record();
@@ -427,6 +537,11 @@ class Record implements TableRowInterface
 
     }
 
+    /**
+     * Returns array data of Record entity.
+     *
+     * @return array
+     */
     public function toArray()
     {
         $array = array(
@@ -435,13 +550,13 @@ class Record implements TableRowInterface
             'type' => $this->type,
             'ttl' => $this->ttl,
             'priority' => $this->priority,
-            'failover' => $this->failover_enabled ? 'true' : 'false',
-            'failovercontent' => $this->failover_content,
+            'failover' => $this->failoverEnabled ? 'true' : 'false',
+            'failovercontent' => $this->failoverContent,
             'ttl' => $this->ttl,
-            'geozone' => $this->geo_region_id,
-            'geolock' => $this->geo_lock ? 'true' : 'false',
-            'geolat' => $this->geo_lat,
-            'geolong' => $this->geo_long
+            'geozone' => $this->geoRegionID,
+            'geolock' => $this->geoLock ? 'true' : 'false',
+            'geolat' => $this->geoLat,
+            'geolong' => $this->geoLong
         );
 
         return array_filter($array);

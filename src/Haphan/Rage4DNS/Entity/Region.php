@@ -7,20 +7,43 @@
 
 namespace Haphan\Rage4DNS\Entity;
 
-
+/**
+ * Class Region represents Geo Region available for a record.
+ *
+ * @package Haphan\Rage4DNS\Entity
+ */
 class Region implements TableRowInterface
 {
+    /**
+     * @var string
+     */
     private $name;
+
+    /**
+     * @var int
+     */
     private $value;
 
+    /**
+     * Constructor
+     *
+     * @param string    $name
+     * @param int       $value
+     */
     public function __construct($name, $value)
     {
         $this->name = $name;
+
         $this->value = $value;
     }
 
     /**
-     * @param mixed $value
+     * Set Value
+     *
+     * @param string    $value
+     *
+     * @return Region   $this
+     *
      */
     public function setValue($value)
     {
@@ -30,7 +53,9 @@ class Region implements TableRowInterface
     }
 
     /**
-     * @return mixed
+     * Returns Region ID
+     *
+     * @return int
      */
     public function getValue()
     {
@@ -38,7 +63,11 @@ class Region implements TableRowInterface
     }
 
     /**
-     * @param mixed $name
+     * Set Region Name
+     *
+     * @param string $name
+     *
+     * @return Region $this
      */
     public function setName($name)
     {
@@ -48,7 +77,9 @@ class Region implements TableRowInterface
     }
 
     /**
-     * @return mixed
+     * Returns region name
+     *
+     * @return string
      */
     public function getName()
     {
@@ -79,6 +110,14 @@ class Region implements TableRowInterface
         return array('Name', 'Value');
     }
 
+    /**
+     * Construct region instance from array.
+     * Internally use to to construct region from API response.
+     *
+     * @param array $array
+     *
+     * @return RecordType
+     */
     public static function createFromArray($array)
     {
         return new RecordType(

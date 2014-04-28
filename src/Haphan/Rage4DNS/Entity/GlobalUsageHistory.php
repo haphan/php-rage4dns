@@ -7,29 +7,56 @@
 
 namespace Haphan\Rage4DNS\Entity;
 
-
+/**
+ * Class GlobalUsageHistory
+ *
+ * @package Haphan\Rage4DNS\Entity
+ */
 class GlobalUsageHistory implements TableRowInterface
 {
     private $date;
     private $value;
 
+    /**
+     * Constructor
+     *
+     * @param \DateTime     $date
+     * @param long          $count
+     */
     public function __construct(\DateTime $date, $count)
     {
         $this->date = $date;
         $this->value = $count;
     }
 
+    /**
+     * Returns date
+     *
+     * @return \DateTime
+     */
     public function getDate()
     {
         return $this->date;
 
     }
 
+    /**
+     * Return value
+     *
+     * @return long
+     */
     public function getValue()
     {
         return $this->value;
     }
 
+    /**
+     * Set Date
+     *
+     * @param \Datetime $date
+     *
+     * @return GlobalUsageHistory $this
+     */
     public function setDate(\Datetime $date)
     {
         $this->date = $date;
@@ -37,6 +64,13 @@ class GlobalUsageHistory implements TableRowInterface
         return $this;
     }
 
+    /**
+     * Set Value
+     *
+     * @param long $value
+     *
+     * @return GlobalUsageHistory $this
+     */
     public function setValue($value)
     {
         $this->value = $value;
@@ -67,6 +101,13 @@ class GlobalUsageHistory implements TableRowInterface
         return array('Date', 'Value');
     }
 
+    /**
+     * Constructor using array. Use internally
+     *
+     * @param array $array
+     *
+     * @return GlobalUsageHistory
+     */
     public static function createFromArray($array)
     {
         return new GlobalUsageHistory(
