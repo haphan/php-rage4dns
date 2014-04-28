@@ -15,18 +15,20 @@ namespace Haphan\Rage4DNS\Entity;
 class RecordType implements TableRowInterface
 {
     private $name;
-    private $value;
+
+    private $typeValue;
 
     /**
      * Constructor
      *
      * @param string    $name
-     * @param int       $value
+     * @param int       $typeValue
      */
-    public function __construct($name, $value)
+    public function __construct($name, $typeValue)
     {
         $this->name = $name;
-        $this->value = $value;
+
+        $this->typeValue = $typeValue;
     }
 
     /**
@@ -36,21 +38,21 @@ class RecordType implements TableRowInterface
      *
      * @return RecordType $this
      */
-    public function setValue($value)
+    public function setTypeValue($value)
     {
-        $this->value = $value;
+        $this->typeValue = $value;
 
         return $this;
     }
 
     /**
-     * Returns value
+     * Returns type value
      *
      * @return int
      */
-    public function getValue()
+    public function getTypeValue()
     {
-        return $this->value;
+        return $this->typeValue;
     }
 
     /**
@@ -87,7 +89,7 @@ class RecordType implements TableRowInterface
     {
         return array(
             $this->name,
-            $this->value
+            $this->typeValue
         );
     }
 
