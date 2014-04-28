@@ -31,9 +31,28 @@ class DeleteRecordCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $recordID = $input->getArgument('id');
+
+        $confirmation = $this->getHelperSet()->get('dialog')->askConfirmation(
+            $output,
+            sprintf('<question>Are you sure to delete record with id %d ? (y/N)</question> ',
+                $recordID),
+            false
+        );
+
+        if($input->getOption('no-interaction'))
+        {
+            $confirmation = true;
+        }
+
+        if(false === $confirmation)
+        {
+            return;
+        }
+
         $rage4 = $this->getRage4DNS($input->getOption('credentials'));
 
-        $status = $rage4->records->deleteRecord($input->getArgument('id'));
+        $status = $rage4->records->deleteRecord($recordID);
 
         $content[] = $status->getTableRow();
 

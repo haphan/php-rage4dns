@@ -26,11 +26,28 @@ class DeleteDomainCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $domainID = $input->getArgument('id');
+
+        $confirmation = $this->getHelperSet()->get('dialog')->askConfirmation(
+            $output,
+            sprintf('<question>Are you sure to delete domain with id %d ? (y/N)</question> ',
+                $domainID),
+            false
+        );
+
+        if($input->getOption('no-interaction'))
+        {
+            $confirmation = true;
+        }
+
+        if(false === $confirmation)
+        {
+            return;
+        }
+
         $rage4 = $this->getRage4DNS($input->getOption('credentials'));
 
-        $status = $rage4->domains->deleteDomain(
-            $input->getArgument('id')
-        );
+        $status = $rage4->domains->deleteDomain($domainID);
 
         $content[] = $status->getTableRow();
 

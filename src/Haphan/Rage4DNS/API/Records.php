@@ -123,8 +123,6 @@ class Records extends AbstractRage4DNS
 
         $this->apiUrl = sprintf("%s/%s/%d", $this->apiUrl, self::URL_UPDATE_RECORD, $record->getId());
 
-        print_r($record->toArray());
-        die;
         $response = $this->processQuery(null, array(
                 'query' => $record->toArray()
             ));
