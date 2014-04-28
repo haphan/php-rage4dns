@@ -13,7 +13,6 @@ namespace Haphan\Rage4DNS;
 
 use Guzzle\Common\Exception\RuntimeException;
 use Guzzle\Http\Client;
-use Guzzle\Http\Message\Response;
 use Haphan\Rage4DNS\Entity\Status;
 
 abstract class AbstractRage4DNS
@@ -50,13 +49,6 @@ abstract class AbstractRage4DNS
      * @var \Guzzle\Http\Client
      */
     protected $client;
-
-    /**
-     * Default Http client options
-     *
-     * @var array
-     */
-    private $options;
 
     /**
      * Constructor.

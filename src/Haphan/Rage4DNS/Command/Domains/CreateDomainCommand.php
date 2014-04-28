@@ -3,9 +3,7 @@
 namespace Haphan\Rage4DNS\Command\Domains;
 
 use Haphan\Rage4DNS\Command\Command;
-use Haphan\Rage4DNS\Entity\Domain;
 use Haphan\Rage4DNS\Entity\Status;
-use Symfony\Component\Console\Helper\TableHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

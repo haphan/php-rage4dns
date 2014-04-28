@@ -242,7 +242,7 @@ class Domains extends AbstractRage4DNS
     {
         $this->apiUrl = sprintf("%s/%s/%d/", $this->apiUrl, self::URL_EXPORT_ZONE, $id);
 
-        return $response = $this->processQuery();
+        return $this->processQuery();
     }
 
 }
