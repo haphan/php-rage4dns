@@ -1,7 +1,7 @@
 Rage4 DNS - Console Tool & PHP Library
 ====
 
-This PHP5.3 library helps you to interact with the [Rage4 DNS API](http://gbshouse.uservoice.com/knowledgebase/articles/109834-rage4-dns-developers-api) via PHP or Console.
+This PHP5.3+ library helps you to interact with the [Rage4 DNS API](http://gbshouse.uservoice.com/knowledgebase/articles/109834-rage4-dns-developers-api) via PHP or Console.
 
 >The **Rage4 DNS** is fast, reliable and cost effective authoritative name servers service designed for high availability and performance. [Read more](http://rage4.com/Home/DNS)
 
@@ -47,7 +47,16 @@ Now you can add the autoloader, and you will have access to the library:
 require 'vendor/autoload.php';
 ```
 
-Console commands - CLI 
+Requirements and Compatibility
+------------
+
+This library requires PHP 5.3+ runtime.
+
+The library follows  [PSR-0](http://www.php-fig.org/psr/psr-0/) autoloading standard.
+
+Compatible with all PSR-enabled frameworks and libaries, such as Symfony2, Zend Framework 2, Laravel, Phalcon.
+
+Console commands - CLI
 ------
 To use the Command line interface, you need to copy and rename the
 `credentials.yml.dist` file to `credentials.yml` in your project directory, then add your own Email and API key:
@@ -285,13 +294,15 @@ Please see [CONTRIBUTING](https://github.com/haphan/php-rage4-dns-api/blob/maste
 
 Acknowledgments
 ---------------
+This project is built on top of following libraries.
+
 * [Symfony Console Component](https://packagist.org/packages/symfony/console)
 * [Symfony Yaml Component](https://packagist.org/packages/symfony/yaml)
 * [Guzzle HTTP Client](http://guzzle.readthedocs.org/en/latest/index.html)
 
 Todos
 ----
-- **Symfony2 coding standard compliant. ** Make sure source code pass phpcs
+- **Symfony2 coding standard compliant.** Make sure source code pass phpcs
 - **Example code for PHP library** Add example code how to use with PHP
 - **Project status badge.**  Add travis build status, SLInsight score, packagist download counter.
 - **Tagged version release.** This will come last
