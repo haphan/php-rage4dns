@@ -197,7 +197,7 @@ class Domains extends AbstractRage4DNS
      */
     public function updateDomain($id, $email, $nsname, $nsprefix, $enableVanity)
     {
-        $this->apiUrl = sprintf("%s/%s/", $this->apiUrl, self::URL_CREATE_REVERSE_IPV6);
+        $this->apiUrl = sprintf("%s/%s/", $this->apiUrl, self::URL_UPDATE_DOMAIN);
 
         $response =  $this->processQuery(null, array(
             'query' => array(
