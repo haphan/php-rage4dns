@@ -18,12 +18,10 @@
     },
 
     "autoload": {
-        "psr-0": {
-            "Haphan\\Rage4DNS\\": "src/"
+        "psr-4": {
+            "Haphan\\Rage4DNS\\": "src/Haphan/Rage4DNS"
         }
     },
-
-    "target-dir": "Haphan/Rage4DNS",
 
     "bin" : ["bin/rage4dns"],
 
