@@ -7,7 +7,6 @@
 
 namespace Haphan\Rage4DNS\Entity;
 
-
 /**
  * This interface defines entity that can be displayed in console table
  *

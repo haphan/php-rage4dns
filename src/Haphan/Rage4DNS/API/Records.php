@@ -47,8 +47,7 @@ class Records extends AbstractRage4DNS
 
         $types = array();
 
-        foreach($response as $row)
-        {
+        foreach ($response as $row) {
             $types[]  = RecordType::createFromArray($row);
         }
 
@@ -68,8 +67,7 @@ class Records extends AbstractRage4DNS
 
         $regions = array();
 
-        foreach($response as $row)
-        {
+        foreach ($response as $row) {
             $regions[]  = Region::createFromArray($row);
         }
 
@@ -84,8 +82,7 @@ class Records extends AbstractRage4DNS
 
         $records = array();
 
-        foreach($response as $row)
-        {
+        foreach ($response as $row) {
             $records[]  = Record::createFromArray($row);
         }
 
@@ -93,7 +90,7 @@ class Records extends AbstractRage4DNS
     }
 
     /**
-     * @param Record $record
+     * @param  Record       $record
      * @return Status|mixed
      * @throws \Exception
      */
@@ -101,8 +98,7 @@ class Records extends AbstractRage4DNS
     {
         $domainID = $record->getDomainId();
 
-        if(!$domainID)
-        {
+        if (!$domainID) {
             throw new \Exception('Cannot create record. Domain ID is missing');
         }
         $this->apiUrl = sprintf("%s/%s/%d", $this->apiUrl, self::URL_CREATE_RECORD, $domainID);
@@ -116,8 +112,7 @@ class Records extends AbstractRage4DNS
 
     public function updateRecord(Record $record)
     {
-        if(!$record->getId())
-        {
+        if (!$record->getId()) {
             throw new \Exception('Cannot create record. Record ID is missing');
         }
 

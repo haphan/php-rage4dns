@@ -2,7 +2,6 @@
 
 namespace Haphan\Rage4DNS\Entity;
 
-
 class Domain implements TableRowInterface
 {
     private $id;
@@ -60,7 +59,6 @@ class Domain implements TableRowInterface
     {
         return $this->type;
     }
-
 
     public function setType($type)
     {

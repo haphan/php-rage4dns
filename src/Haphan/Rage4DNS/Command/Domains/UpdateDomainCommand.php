@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-
 class UpdateDomainCommand extends Command
 {
 
@@ -26,8 +25,6 @@ class UpdateDomainCommand extends Command
             ->addOption('credentials', null, InputOption::VALUE_REQUIRED,
                 'If set, the yaml file which contains your credentials', Command::DEFAULT_CREDENTIALS_FILE);
     }
-
-
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {

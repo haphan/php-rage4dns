@@ -8,7 +8,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-
 class DeleteRecordCommand extends Command
 {
 
@@ -35,13 +34,11 @@ class DeleteRecordCommand extends Command
             false
         );
 
-        if($input->getOption('no-interaction'))
-        {
+        if ($input->getOption('no-interaction')) {
             $confirmation = true;
         }
 
-        if(false === $confirmation)
-        {
+        if (false === $confirmation) {
             return;
         }
 

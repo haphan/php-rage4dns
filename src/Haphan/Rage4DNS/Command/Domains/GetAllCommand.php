@@ -8,7 +8,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-
 class GetAllCommand extends Command
 {
 
@@ -24,7 +23,6 @@ class GetAllCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $rage4 = $this->getRage4DNS($input->getOption('credentials'));
-
 
         $domains = $rage4->domains->getAll();
 

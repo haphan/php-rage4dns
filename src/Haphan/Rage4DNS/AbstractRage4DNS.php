@@ -18,14 +18,12 @@ use Haphan\Rage4DNS\Entity\Status;
 abstract class AbstractRage4DNS
 {
 
-
     /**
      * The url of the API endpoint.
      *
      * @var array
      */
     const ENDPOINT_URL = 'https://secure.rage4.com/rapi';
-
 
     const USER_AGENT = 'Haphan/Rage4DNS CLI Client 1.0 (+http://github.com/haphan)';
 
@@ -53,7 +51,7 @@ abstract class AbstractRage4DNS
     /**
      * Constructor.
      *
-     * @param Credentials   $credentials The credentials to use.
+     * @param Credentials $credentials The credentials to use.
      */
     public function __construct(Credentials $credentials)
     {
@@ -73,8 +71,8 @@ abstract class AbstractRage4DNS
     }
 
     /**
-     * @param array $headers
-     * @param array $options
+     * @param  array      $headers
+     * @param  array      $options
      * @return array|null
      * @throws \Exception
      */
@@ -89,13 +87,11 @@ abstract class AbstractRage4DNS
         /**@var Response */
         $response = $this->client->send($request);
 
-        if($response->isSuccessful())
-        {
+        if ($response->isSuccessful()) {
 
-            try{
+            try {
                 return $response->json();
-            }catch(RuntimeException $cannotParseJsonException)
-            {
+            } catch (RuntimeException $cannotParseJsonException) {
                 return $response->getBody(true);
             }
 
@@ -112,12 +108,9 @@ abstract class AbstractRage4DNS
      */
     protected function getStatusMessage($response)
     {
-        if(is_array($response) && isset($response['status']))
-        {
+        if (is_array($response) && isset($response['status'])) {
             return Status::createFromArray($response['status']);
-        }
-
-        else return null;
+        } else return null;
     }
 
 }

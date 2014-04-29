@@ -20,8 +20,8 @@ class GlobalUsageHistory implements TableRowInterface
     /**
      * Constructor
      *
-     * @param \DateTime     $date
-     * @param long          $count
+     * @param \DateTime $date
+     * @param long      $count
      */
     public function __construct(\DateTime $date, $count)
     {

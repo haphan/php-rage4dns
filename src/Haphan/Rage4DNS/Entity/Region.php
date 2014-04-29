@@ -27,8 +27,8 @@ class Region implements TableRowInterface
     /**
      * Constructor
      *
-     * @param string    $name
-     * @param int       $value
+     * @param string $name
+     * @param int    $value
      */
     public function __construct($name, $value)
     {
@@ -40,9 +40,9 @@ class Region implements TableRowInterface
     /**
      * Set Value
      *
-     * @param string    $value
+     * @param string $value
      *
-     * @return Region   $this
+     * @return Region $this
      *
      */
     public function setValue($value)
@@ -85,7 +85,6 @@ class Region implements TableRowInterface
     {
         return $this->name;
     }
-
 
     /**
      * Implements TableRowInterface

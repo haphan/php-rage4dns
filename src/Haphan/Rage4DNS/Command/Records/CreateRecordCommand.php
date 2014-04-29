@@ -10,7 +10,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-
 class CreateRecordCommand extends Command
 {
 
@@ -49,8 +48,6 @@ class CreateRecordCommand extends Command
         $record->setType($input->getArgument('type'));
         $record->setTtl($input->getArgument('ttl'));
         $record->setGeoRegionId($input->getArgument('geozone'));
-
-
 
         $record->setPriority($input->getOption('priority'));
         $record->setFailoverEnabled($input->getOption('enable-failover') ? true : false);

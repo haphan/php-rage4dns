@@ -21,8 +21,8 @@ class RecordType implements TableRowInterface
     /**
      * Constructor
      *
-     * @param string    $name
-     * @param int       $typeValue
+     * @param string $name
+     * @param int    $typeValue
      */
     public function __construct($name, $typeValue)
     {
@@ -34,7 +34,7 @@ class RecordType implements TableRowInterface
     /**
      * Set value
      *
-     * @param int   $value
+     * @param int $value
      *
      * @return RecordType $this
      */
@@ -78,7 +78,6 @@ class RecordType implements TableRowInterface
     {
         return $this->name;
     }
-
 
     /**
      * Implements TableRowInterface

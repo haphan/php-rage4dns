@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-
 class DeleteDomainCommand extends Command
 {
 
@@ -34,13 +33,11 @@ class DeleteDomainCommand extends Command
             false
         );
 
-        if($input->getOption('no-interaction'))
-        {
+        if ($input->getOption('no-interaction')) {
             $confirmation = true;
         }
 
-        if(false === $confirmation)
-        {
+        if (false === $confirmation) {
             return;
         }
 

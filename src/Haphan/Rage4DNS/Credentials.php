@@ -32,7 +32,6 @@ class Credentials
      */
     private $accountKey;
 
-
     /**
      * @param $email User's email address
      * @param $accountKey Account Key is available in User Profile section of Rage4 DNS control panel.

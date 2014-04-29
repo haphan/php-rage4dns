@@ -31,7 +31,6 @@ class Record implements TableRowInterface
     private $isActive = true;
     private $udpLimit = false;
 
-
     /**
      * Empty constructor.
      * Due to this entity holds many properties, it is best not to use a long constructor with 20+ parameters

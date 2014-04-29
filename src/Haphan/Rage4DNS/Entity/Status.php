@@ -14,7 +14,6 @@ class Status implements TableRowInterface
     private $id;
     private $error;
 
-
     /**
      * Class constructor
      *
@@ -28,7 +27,6 @@ class Status implements TableRowInterface
         $this->id = $id;
         $this->error = $error;
     }
-
 
     /**
      * Constructor from array. Use this to construct instance of Status from array.
@@ -76,7 +74,6 @@ class Status implements TableRowInterface
     {
         return $this->id;
     }
-
 
     /**
      * Set ID

@@ -29,7 +29,6 @@ class Domains extends AbstractRage4DNS
     const URL_DELETE_DOMAIN = 'deletedomain';
     const URL_EXPORT_ZONE = 'exportzonefile';
 
-
     public function __construct(Credentials $credentials)
     {
         parent::__construct($credentials);
@@ -48,14 +47,12 @@ class Domains extends AbstractRage4DNS
 
         $domains = array();
 
-        foreach($domainsArray as $d)
-        {
+        foreach ($domainsArray as $d) {
             $domains[]  = Domain::createFromArray($d);
         }
 
         return $domains;
     }
-
 
     /**
      * Get a single domain by ID
@@ -89,7 +86,6 @@ class Domains extends AbstractRage4DNS
         return Domain::createFromArray($json);
     }
 
-
     /**
      * Create a regular domain
      *
@@ -117,7 +113,7 @@ class Domains extends AbstractRage4DNS
      * @param $domainName       Name of domain
      * @param $email            Email of owner
      * @param $nsname           Domain name of vanity name server
-     * @param string $prefix    Default to ns
+     * @param  string $prefix Default to ns
      * @return Status
      */
     public function createDomainVanity($domainName, $email, $nsname, $prefix = 'ns')
@@ -211,7 +207,6 @@ class Domains extends AbstractRage4DNS
 
         return Status::createFromArray($response);
     }
-
 
     /**
      * Delete a domain

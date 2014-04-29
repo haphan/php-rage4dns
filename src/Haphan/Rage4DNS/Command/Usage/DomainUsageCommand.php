@@ -14,7 +14,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-
 class DomainUsageCommand extends Command
 {
     protected function configure()
@@ -27,8 +26,6 @@ class DomainUsageCommand extends Command
             ->addOption('credentials', null, InputOption::VALUE_REQUIRED,
                 'If set, the yaml file which contains your credentials', Command::DEFAULT_CREDENTIALS_FILE);
     }
-
-
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -46,8 +43,7 @@ class DomainUsageCommand extends Command
 
         $limit = $input->getOption('limit');
 
-        if($limit > 0)
-        {
+        if ($limit > 0) {
             $content = array_slice($content, 0,$limit);
         }
 

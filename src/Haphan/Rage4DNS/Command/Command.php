@@ -29,7 +29,7 @@ class Command extends BaseCommand
     /**
      * Returns an instance of Rage4DNS API client
      *
-     * @param string $file
+     * @param  string                    $file
      * @return \Haphan\Rage4DNS\Rage4DNS
      * @throws \RuntimeException
      */

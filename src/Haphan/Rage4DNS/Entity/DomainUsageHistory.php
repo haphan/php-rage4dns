@@ -7,7 +7,6 @@
 
 namespace Haphan\Rage4DNS\Entity;
 
-
 class DomainUsageHistory implements TableRowInterface
 {
     private $date;

@@ -42,8 +42,7 @@ class Usage extends AbstractRage4DNS
 
         $usages = array();
 
-        foreach($response as $row)
-        {
+        foreach ($response as $row) {
             $usages[] = GlobalUsageHistory::createFromArray($row);
         }
 
@@ -66,8 +65,7 @@ class Usage extends AbstractRage4DNS
 
         $usages = array();
 
-        foreach($response as $row)
-        {
+        foreach ($response as $row) {
             $usages[] = DomainUsageHistory::createFromArray($row);
         }
 
