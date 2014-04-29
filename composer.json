@@ -23,6 +23,10 @@
         }
     },
 
+    "config": {
+        "bin-dir": "bin"
+    },
+
     "bin" : ["bin/rage4dns"],
 
     "extra": {
