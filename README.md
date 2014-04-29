@@ -292,6 +292,54 @@ $ php bin/rage4dns usage:global
 | 2014-04-24 | 2418  |
 +------------+-------+
 ```
+
+PHP API Usage
+-------
+
+######  Construct `$rage4` client instance
+
+```php
+<?php 
+
+require __DIR__ . '/vendor/autoload.php';
+
+use \Haphan\Rage4DNS\Credentials;
+use \Haphan\Rage4DNS\Rage4DNS;
+
+// Create credential instace with your email and API client key
+$credentials = new Credentials('email@example.com', '11223344556677');
+
+// rage4 dns client instance
+$rage4 = new Rage4DNS($credentials);
+
+```
+
+###### `Domains` related api
+
+```php
+//...
+//Get all domains
+$domains = $rage4->domains->getAll();
+
+//Retrieve domain instance using name or ID
+$domain = $rage4->domains->getById(12345);
+$domain = $rage4->domains->getByName('example.com');
+
+//Create a new domain
+$status = $rage4->domains->createDomain('foobar.com', 'owner@example.com');
+
+//Update the domain and set vanity ns record
+$status = $rage4->domains->updateDomain('12345', 'newOwner@example.com', 'example.com', 'ns', true);
+
+//Remove a domain
+$status = $rage4->domains->deleteDomain('12345');
+
+//Export zone with BIND format
+$zone = $rage4->domains->exportZone('12345');
+```
+
+###### `Records` related api
+
 Credits
 -------
 * [Ha Phan](https://github.com/haphan)
