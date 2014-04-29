@@ -25,5 +25,11 @@
 
     "target-dir": "Haphan/Rage4DNS",
 
-    "bin" : ["bin/rage4dns"]
+    "bin" : ["bin/rage4dns"],
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
