@@ -16,17 +16,43 @@ Who use this?
 - **PHP Developers** who wish to integrate their products or services with Rage4 DNS
 - **System admins** who wish to automate tasks with Rage4DNS 
 
-Installation
-------------
+Prerequisites
+---
 
-This library can be found on [Packagist](https://packagist.org/packages/toin0u/digitalocean).
-The recommended way to install this is through [composer](http://getcomposer.org).
+This library requires `git`, `curl`, `php` and `composer.phar`.
 
-Run these commands to install composer, the library and its dependencies:
+To install composer, execute following command.
 
 ```bash
 $ curl -sS https://getcomposer.org/installer | php
-$ php composer.phar require haphan/rage4dns:@stable
+```
+
+Stand-alone console tool installation
+---
+
+If you are to use this as a CLI tool only (most likely for system administrators), follow these steps. Otherwise see **PHP library installation**.
+
+Make sure you have `composer.phar` and `git` installed before execute following command.
+
+```bash
+$ git clone https://github.com/haphan/php-rage4dns.git rage4; cd rage4; composer.phar config bin-dir bin; composer.phar install
+```
+
+Modify `credentials.yml` to include your email and API key. Finally verify installation by execute command
+
+```bash
+$ php bin/rage4dns
+```
+
+PHP library installation
+---
+
+This library can be found on [Packagist](https://packagist.org/packages/haphan/php-rage4dns).
+
+The recommended way to install this is through [composer](http://getcomposer.org). 
+
+```bash
+$ php composer.phar require haphan/php-rage4dns:dev-master
 ```
 
 Or edit `composer.json` and add:
@@ -34,19 +60,17 @@ Or edit `composer.json` and add:
 ```json
 {
     "require": {
-        "haphan/rage4dns": "@stable"
+        "haphan/php-rage4dns": "dev-master"
     }
 }
 ```
 
 **Protip:** To install latest dev release, you should browse the
-[`haphan/rage4dns`](https://packagist.org/packages/haphan/rage4dns)
-page to choose a stable version to use, avoid the `@stable` meta constraint.
+[`haphan/php-rage4dns`](https://packagist.org/packages/haphan/php-rage4dns)
 
 And install dependencies:
 
 ```bash
-$ curl -sS https://getcomposer.org/installer | php
 $ php composer.phar install
 ```
 
@@ -58,12 +82,10 @@ Now you can add the autoloader, and you will have access to the library:
 require 'vendor/autoload.php';
 ```
 
-Requirements and Compatibility
+Compatibility
 ------------
 
-This library requires PHP 5.3+ runtime.
-
-The library follows  [PSR-0](http://www.php-fig.org/psr/psr-0/) autoloading standard.
+The library follows  [PSR-4](http://www.php-fig.org/psr/psr-4/) autoloading standard.
 
 Compatible with all PSR-enabled frameworks and libaries, such as Symfony2, Zend Framework 2, Laravel, Phalcon.
 
