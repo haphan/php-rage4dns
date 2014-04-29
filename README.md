@@ -362,6 +362,44 @@ $zone = $rage4->domains->exportZone('12345');
 
 ###### `Records` related api
 
+```php
+// ...
+
+// Get available record types
+/**@var \Haphan\Rage4DNS\Entity\RecordType[] $types */
+$types = $rage4->records->getTypes();
+
+// Get available regions
+/**@var \Haphan\Rage4DNS\Entity\Region[] $regions */
+$regions = $rage4->records->getRegions();
+
+// Create new Record
+$record = new \Haphan\Rage4DNS\Entity\Record();
+$record
+    ->setName('dev.example.com')
+    ->setContent('1.2.3.4')
+    ->setType('2') // A record, see record types
+    ->setTtl(3600)
+    ->setGeoRegionId(12345) // see regions
+    ->setDomainId(12345);
+
+$status = $rage4->records->createRecord($record);
+
+
+// Remove a record
+$status =  $rage4->records->deleteRecord(12345);
+
+
+//Update a record
+/**@var \Haphan\Rage4DNS\Entity\Record $record */
+$record = $rage4->records->getRecords(12345);
+
+$record->setName('new.example.com');
+
+$status = $rage4->records->updateRecord($record);
+
+```
+
 Credits
 -------
 * [Ha Phan](https://github.com/haphan)
