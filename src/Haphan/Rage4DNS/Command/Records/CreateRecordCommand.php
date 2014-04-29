@@ -28,7 +28,7 @@ class CreateRecordCommand extends Command
             ->addArgument('content', InputArgument::REQUIRED, 'Record value. Example: 8.8.8.8')
             ->addArgument('type', InputArgument::REQUIRED, 'Record Type. Example: A')
             ->addArgument('ttl', InputArgument::OPTIONAL, 'TTL', 3600)
-            ->addArgument('geozone', InputArgument::OPTIONAL, 'Geo Zone ID. See records:regions for available zones.', null);
+            ->addArgument('geozone', InputArgument::OPTIONAL, 'Geo Zone ID. See records:regions for available zones.', 'null');
         $this
             ->addOption('priority', 'p', InputOption::VALUE_REQUIRED, 'Record priority. Example: 1.', null)
             ->addOption('enable-failover', 'f', InputOption::VALUE_NONE, 'Use this flag to enable fail-over.')
@@ -50,11 +50,12 @@ class CreateRecordCommand extends Command
         $record->setTtl($input->getArgument('ttl'));
         $record->setGeoRegionId($input->getArgument('geozone'));
 
+
+
         $record->setPriority($input->getOption('priority'));
         $record->setFailoverEnabled($input->getOption('enable-failover') ? true : false);
         $record->setFailoverContent($input->getOption('failover-content'));
 
-        $record->setGeoRegionId($input->getOption('geozone'));
         $record->setGeoLock($input->getOption('lock-geo') ? true : false);
         $record->setGeoLong($input->getOption('geo-long'));
         $record->setGeoLat($input->getOption('geo-lat'));
