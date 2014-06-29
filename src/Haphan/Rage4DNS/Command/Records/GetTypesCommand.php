@@ -7,6 +7,11 @@ use Haphan\Rage4DNS\Entity\RecordType;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class GetTypesCommand
+ *
+ * @package Haphan\Rage4DNS\Command\Records
+ */
 class GetTypesCommand extends Command
 {
 

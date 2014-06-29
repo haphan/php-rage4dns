@@ -16,6 +16,11 @@ use Haphan\Rage4DNS\Credentials;
 use Haphan\Rage4DNS\Entity\Domain;
 use Haphan\Rage4DNS\Entity\Status;
 
+/**
+ * Class Domains
+ *
+ * @package Haphan\Rage4DNS\API
+ */
 class Domains extends AbstractRage4DNS
 {
     const URL_ALL_DOMAINS = 'getdomains';
@@ -29,6 +34,9 @@ class Domains extends AbstractRage4DNS
     const URL_DELETE_DOMAIN = 'deletedomain';
     const URL_EXPORT_ZONE = 'exportzonefile';
 
+    /**
+     * @param Credentials $credentials
+     */
     public function __construct(Credentials $credentials)
     {
         parent::__construct($credentials);
@@ -41,7 +49,7 @@ class Domains extends AbstractRage4DNS
      */
     public function getAll()
     {
-        $url = sprintf("%s/%s",$this->apiUrl, self::URL_ALL_DOMAINS);
+        $url = sprintf("%s/%s", $this->apiUrl, self::URL_ALL_DOMAINS);
 
         $domainsArray =  $this->processQuery($url);
 
@@ -57,7 +65,8 @@ class Domains extends AbstractRage4DNS
     /**
      * Get a single domain by ID
      *
-     * @param $id
+     * @param int $id
+     *
      * @return Domain
      */
     public function getById($id)
@@ -72,7 +81,8 @@ class Domains extends AbstractRage4DNS
     /**
      * Get a single domain by name
      *
-     * @param $name
+     * @param string $name
+     *
      * @return Domain
      */
     public function getByName($name)
@@ -89,8 +99,9 @@ class Domains extends AbstractRage4DNS
     /**
      * Create a regular domain
      *
-     * @param $domainName
-     * @param $email
+     * @param string $domainName
+     * @param string $email
+     *
      * @return Status
      */
     public function createDomain($domainName, $email)
@@ -110,10 +121,11 @@ class Domains extends AbstractRage4DNS
     /**
      * Create regular domain with vanity name server
      *
-     * @param $domainName       Name of domain
-     * @param $email            Email of owner
-     * @param $nsname           Domain name of vanity name server
-     * @param  string $prefix Default to ns
+     * @param string $domainName Name of domain
+     * @param string $email      Email of owner
+     * @param string $nsname     Domain name of vanity name server
+     * @param string $prefix     Default to ns
+     *
      * @return Status
      */
     public function createDomainVanity($domainName, $email, $nsname, $prefix = 'ns')
@@ -136,9 +148,10 @@ class Domains extends AbstractRage4DNS
     /**
      * Create reverse IPv4 domain
      *
-     * @param $domainName
-     * @param $email
-     * @param $subnetMask
+     * @param string $domainName
+     * @param string $email
+     * @param string $subnetMask
+     *
      * @return Status
      */
     public function createReverseIPv4($domainName, $email, $subnetMask)
@@ -158,9 +171,11 @@ class Domains extends AbstractRage4DNS
 
     /**
      * Create reverse IPv6 domain
-     * @param $domainName
-     * @param $email
-     * @param $subnetMask
+     *
+     * @param string $domainName
+     * @param string $email
+     * @param string $subnetMask
+     *
      * @return Status
      */
     public function createReverseIPV6($domainName, $email, $subnetMask)
@@ -184,11 +199,12 @@ class Domains extends AbstractRage4DNS
      * To activate Vanity NS set values of nsname, nsprefix and set $enableVanity to true.
      * To deactivate Vanity NS set empty values to nsname, nsprefix and set $enableVanity to false.
      *
-     * @param $id
-     * @param $email
-     * @param $nsname
-     * @param $nsprefix
-     * @param $enableVanity
+     * @param int     $id
+     * @param string  $email
+     * @param string  $nsname
+     * @param string  $nsprefix
+     * @param boolean $enableVanity
+     *
      * @return Status
      */
     public function updateDomain($id, $email, $nsname, $nsprefix, $enableVanity)
@@ -211,7 +227,8 @@ class Domains extends AbstractRage4DNS
     /**
      * Delete a domain
      *
-     * @param $id
+     * @param int $id
+     *
      * @return Status
      */
     public function deleteDomain($id)
@@ -230,7 +247,8 @@ class Domains extends AbstractRage4DNS
     /**
      * Export's zone as BIND compatible file format
      *
-     * @param $id
+     * @param int $id
+     *
      * @return string|null
      */
     public function exportZone($id)

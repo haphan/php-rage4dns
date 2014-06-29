@@ -7,6 +7,11 @@
 
 namespace Haphan\Rage4DNS\Entity;
 
+/**
+ * Class DomainUsageHistory
+ *
+ * @package Haphan\Rage4DNS\Entity
+ */
 class DomainUsageHistory implements TableRowInterface
 {
     private $date;
@@ -17,6 +22,15 @@ class DomainUsageHistory implements TableRowInterface
     private $ap;
     private $af;
 
+    /**
+     * @param \DateTime $date
+     * @param int       $total
+     * @param int       $eu
+     * @param int       $us
+     * @param int       $sa
+     * @param int       $ap
+     * @param int       $af
+     */
     public function __construct(\DateTime $date, $total = 0, $eu = 0 , $us = 0, $sa = 0, $ap = 0, $af = 0)
     {
         $this->date = $date;
@@ -28,17 +42,30 @@ class DomainUsageHistory implements TableRowInterface
         $this->af = $af;
     }
 
+    /**
+     * Returns date
+     *
+     * @return \DateTime
+     */
     public function getDate()
     {
         return $this->date;
 
     }
 
+    /**
+     * @return int
+     */
     public function getTotal()
     {
         return $this->total;
     }
 
+    /**
+     * @param \Datetime $date
+     *
+     * @return $this
+     */
     public function setDate(\Datetime $date)
     {
         $this->date = $date;
@@ -46,6 +73,11 @@ class DomainUsageHistory implements TableRowInterface
         return $this;
     }
 
+    /**
+     * @param int $total
+     *
+     * @return $this
+     */
     public function setTotal($total)
     {
         $this->total = $total;
@@ -53,31 +85,51 @@ class DomainUsageHistory implements TableRowInterface
         return $this;
     }
 
+    /**
+     * @return int
+     */
     public function getEU()
     {
         return $this->eu;
     }
 
+    /**
+     * @return int
+     */
     public function getUS()
     {
         return $this->us;
     }
 
+    /**
+     * @return int
+     */
     public function getSA()
     {
         return $this->sa;
     }
 
+    /**
+     * @return int
+     */
     public function getAP()
     {
         return $this->ap;
     }
 
+    /**
+     * @return int
+     */
     public function getAF()
     {
         return $this->af;
     }
 
+    /**
+     * @param array $array
+     *
+     * @return DomainUsageHistory
+     */
     public static function createFromArray($array)
     {
         return new DomainUsageHistory(

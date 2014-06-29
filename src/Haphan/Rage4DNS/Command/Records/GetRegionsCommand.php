@@ -7,6 +7,11 @@ use Haphan\Rage4DNS\Entity\Region;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class GetRegionsCommand
+ *
+ * @package Haphan\Rage4DNS\Command\Records
+ */
 class GetRegionsCommand extends Command
 {
 

@@ -10,6 +10,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class CreateRecordCommand
+ *
+ * @package Haphan\Rage4DNS\Command\Records
+ */
 class CreateRecordCommand extends Command
 {
 
@@ -32,7 +37,7 @@ class CreateRecordCommand extends Command
             ->addOption('priority', 'p', InputOption::VALUE_REQUIRED, 'Record priority. Example: 1.', null)
             ->addOption('enable-failover', 'f', InputOption::VALUE_NONE, 'Use this flag to enable fail-over.')
             ->addOption('failover-content', 'fc', InputOption::VALUE_REQUIRED, 'Value of fail-over record.')
-            ->addOption('lock-geo', 'l',  InputOption::VALUE_NONE , 'Use this flag to lock geo.')
+            ->addOption('lock-geo', 'l', InputOption::VALUE_NONE, 'Use this flag to lock geo.')
             ->addOption('geo-long', 'lo', InputOption::VALUE_REQUIRED, 'Geo longitude')
             ->addOption('geo-lat', 'la', InputOption::VALUE_REQUIRED, 'Geo latitude');
     }

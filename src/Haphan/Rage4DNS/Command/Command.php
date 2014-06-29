@@ -10,6 +10,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
 use Haphan\Rage4DNS\Credentials;
 
+/**
+ * Class Command
+ *
+ * @package Haphan\Rage4DNS\Command
+ */
 class Command extends BaseCommand
 {
     /**
@@ -29,7 +34,8 @@ class Command extends BaseCommand
     /**
      * Returns an instance of Rage4DNS API client
      *
-     * @param  string                    $file
+     * @param string $file
+     *
      * @return \Haphan\Rage4DNS\Rage4DNS
      * @throws \RuntimeException
      */
@@ -49,7 +55,7 @@ class Command extends BaseCommand
     {
         $this->addOption('credentials', null, InputOption::VALUE_REQUIRED,
             'If set, the yaml file which contains your credentials', self::DEFAULT_CREDENTIALS_FILE)
-            ->addOption('layout', null , InputOption::VALUE_REQUIRED,
+            ->addOption('layout', null, InputOption::VALUE_REQUIRED,
                 'Table layout style: default|borderless|compact', 'default');
     }
 

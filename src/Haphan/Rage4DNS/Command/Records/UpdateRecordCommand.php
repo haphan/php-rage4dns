@@ -10,6 +10,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class UpdateRecordCommand
+ *
+ * @package Haphan\Rage4DNS\Command\Records
+ */
 class UpdateRecordCommand extends Command
 {
 
@@ -33,7 +38,7 @@ class UpdateRecordCommand extends Command
             ->addOption('failover-content', 'fc', InputOption::VALUE_REQUIRED, 'Value of fail-over record.')
             ->addOption('ttl', 't', InputOption::VALUE_REQUIRED, 'TTL')
             ->addOption('geozone', 'g', InputOption::VALUE_REQUIRED, 'Geo Zone ID. See records:regions for available zones.')
-            ->addOption('lock-geo', 'l',  InputOption::VALUE_NONE , 'Use this flag to lock geo.')
+            ->addOption('lock-geo', 'l', InputOption::VALUE_NONE, 'Use this flag to lock geo.')
             ->addOption('geo-long', 'lo', InputOption::VALUE_REQUIRED, 'Geo longitude')
             ->addOption('geo-lat', 'la', InputOption::VALUE_REQUIRED, 'Geo latitude');
     }

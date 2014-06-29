@@ -8,6 +8,11 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class DeleteRecordCommand
+ *
+ * @package Haphan\Rage4DNS\Command\Records
+ */
 class DeleteRecordCommand extends Command
 {
 

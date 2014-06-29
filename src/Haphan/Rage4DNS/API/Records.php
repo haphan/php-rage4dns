@@ -18,6 +18,11 @@ use Haphan\Rage4DNS\Entity\RecordType;
 use Haphan\Rage4DNS\Entity\Region;
 use Haphan\Rage4DNS\Entity\Status;
 
+/**
+ * Class Records
+ *
+ * @package Haphan\Rage4DNS\API
+ */
 class Records extends AbstractRage4DNS
 {
 
@@ -29,6 +34,9 @@ class Records extends AbstractRage4DNS
     const URL_DELETE_RECORD = 'deleterecord';
     const URL_FAIL_OVER_RECORD = 'setrecordfailover';
 
+    /**
+     * @param Credentials $credentials
+     */
     public function __construct(Credentials $credentials)
     {
         parent::__construct($credentials);
@@ -74,6 +82,11 @@ class Records extends AbstractRage4DNS
         return $regions;
     }
 
+    /**
+     * @param int $recordID
+     *
+     * @return array
+     */
     public function getRecords($recordID)
     {
         $url = sprintf("%s/%s/%d", $this->apiUrl, self::URL_RECORDS, $recordID);
@@ -90,8 +103,9 @@ class Records extends AbstractRage4DNS
     }
 
     /**
-     * @param  Record       $record
-     * @return Status|mixed
+     * @param Record $record
+     *
+     * @return Status
      * @throws \Exception
      */
     public function createRecord(Record $record)
@@ -110,6 +124,12 @@ class Records extends AbstractRage4DNS
         return Status::createFromArray($response);
     }
 
+    /**
+     * @param Record $record
+     *
+     * @return Status
+     * @throws \Exception
+     */
     public function updateRecord(Record $record)
     {
         if (!$record->getId()) {
@@ -125,6 +145,11 @@ class Records extends AbstractRage4DNS
         return Status::createFromArray($response);
     }
 
+    /**
+     * @param int $recordID
+     *
+     * @return Status
+     */
     public function deleteRecord($recordID)
     {
         $url = sprintf("%s/%s/%d", $this->apiUrl, self::URL_DELETE_RECORD, $recordID);

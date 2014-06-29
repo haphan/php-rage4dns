@@ -33,8 +33,8 @@ class Credentials
     private $accountKey;
 
     /**
-     * @param $email User's email address
-     * @param $accountKey Account Key is available in User Profile section of Rage4 DNS control panel.
+     * @param string $email      User's email address
+     * @param string $accountKey Account Key is available in User Profile section of Rage4 DNS control panel.
      */
     public function __construct($email, $accountKey)
     {
@@ -45,7 +45,7 @@ class Credentials
     /**
      * Returns User's email address
      *
-     * @return User|string
+     * @return string
      */
     public function getEmail()
     {
@@ -55,7 +55,7 @@ class Credentials
     /**
      * Returns Account key
      *
-     * @return Account|string
+     * @return string
      */
     public function getAccountKey()
     {

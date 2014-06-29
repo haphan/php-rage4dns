@@ -9,6 +9,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class CreateDomainVanityCommand
+ *
+ * @package Haphan\Rage4DNS\Command\Domains
+ */
 class CreateDomainVanityCommand extends Command
 {
 

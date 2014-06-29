@@ -9,6 +9,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class GetRecordsCommand
+ *
+ * @package Haphan\Rage4DNS\Command\Records
+ */
 class GetRecordsCommand extends Command
 {
 

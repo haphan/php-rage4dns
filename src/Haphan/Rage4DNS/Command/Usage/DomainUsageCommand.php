@@ -14,6 +14,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class DomainUsageCommand
+ *
+ * @package Haphan\Rage4DNS\Command\Usage
+ */
 class DomainUsageCommand extends Command
 {
     protected function configure()
@@ -44,7 +49,7 @@ class DomainUsageCommand extends Command
         $limit = $input->getOption('limit');
 
         if ($limit > 0) {
-            $content = array_slice($content, 0,$limit);
+            $content = array_slice($content, 0, $limit);
         }
 
         $this->renderTable(

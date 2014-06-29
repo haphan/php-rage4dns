@@ -16,12 +16,20 @@ use Haphan\Rage4DNS\Credentials;
 use Haphan\Rage4DNS\Entity\DomainUsageHistory;
 use Haphan\Rage4DNS\Entity\GlobalUsageHistory;
 
+/**
+ * Class Usage
+ *
+ * @package Haphan\Rage4DNS\API
+ */
 class Usage extends AbstractRage4DNS
 {
 
     const URL_GLOBAL_USAGE = 'showcurrentglobalusage';
     const URL_CURRENT_USAGE = 'showcurrentusage';
 
+    /**
+     * @param Credentials $credentials
+     */
     public function __construct(Credentials $credentials)
     {
         parent::__construct($credentials);
@@ -54,7 +62,8 @@ class Usage extends AbstractRage4DNS
      *
      * Order by date desc.
      *
-     * @param $id Domain ID
+     * @param int $id Domain ID
+     *
      * @return DomainUsageHistory[]
      */
     public function getCurrentUsage($id)

@@ -15,6 +15,11 @@ use Guzzle\Common\Exception\RuntimeException;
 use Guzzle\Http\Client;
 use Haphan\Rage4DNS\Entity\Status;
 
+/**
+ * Class AbstractRage4DNS
+ *
+ * @package Haphan\Rage4DNS
+ */
 abstract class AbstractRage4DNS
 {
 
@@ -71,8 +76,10 @@ abstract class AbstractRage4DNS
     }
 
     /**
-     * @param  array      $headers
-     * @param  array      $options
+     * @param string $url
+     * @param array  $headers
+     * @param array  $options
+     *
      * @return array|null
      * @throws \Exception
      */
@@ -95,22 +102,25 @@ abstract class AbstractRage4DNS
                 return $response->getBody(true);
             }
 
-        }else
+        } else {
             throw new \Exception("Fail to complete the request. Server returns code {$response->getStatusCode()}");
-
+        }
     }
 
     /**
      * Rage4 DNS does not properly return error code
      *
-     * @param $response
+     * @param array $response
+     *
      * @return null
      */
     protected function getStatusMessage($response)
     {
         if (is_array($response) && isset($response['status'])) {
             return Status::createFromArray($response['status']);
-        } else return null;
+        } else {
+            return null;
+        }
     }
 
 }
