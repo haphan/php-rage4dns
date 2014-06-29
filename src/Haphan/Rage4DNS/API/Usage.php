@@ -36,9 +36,9 @@ class Usage extends AbstractRage4DNS
      */
     public function getGlobalUsage()
     {
-        $this->apiUrl = sprintf("%s/%s/", $this->apiUrl, self::URL_GLOBAL_USAGE);
+        $url = sprintf("%s/%s/", $this->apiUrl, self::URL_GLOBAL_USAGE);
 
-        $response =  $this->processQuery();
+        $response =  $this->processQuery($url);
 
         $usages = array();
 
@@ -59,9 +59,9 @@ class Usage extends AbstractRage4DNS
      */
     public function getCurrentUsage($id)
     {
-        $this->apiUrl = sprintf("%s/%s/%d", $this->apiUrl, self::URL_CURRENT_USAGE, $id);
+        $url = sprintf("%s/%s/%d", $this->apiUrl, self::URL_CURRENT_USAGE, $id);
 
-        $response =  $this->processQuery();
+        $response =  $this->processQuery($url);
 
         $usages = array();
 

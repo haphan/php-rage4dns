@@ -41,9 +41,9 @@ class Records extends AbstractRage4DNS
      */
     public function getTypes()
     {
-        $this->apiUrl = sprintf("%s/%s", $this->apiUrl, self::URL_RECORD_TYPES);
+        $url = sprintf("%s/%s", $this->apiUrl, self::URL_RECORD_TYPES);
 
-        $response =  $this->processQuery();
+        $response =  $this->processQuery($url);
 
         $types = array();
 
@@ -61,9 +61,9 @@ class Records extends AbstractRage4DNS
      */
     public function getRegions()
     {
-        $this->apiUrl = sprintf("%s/%s", $this->apiUrl, self::URL_REGIONS);
+        $url = sprintf("%s/%s", $this->apiUrl, self::URL_REGIONS);
 
-        $response =  $this->processQuery();
+        $response =  $this->processQuery($url);
 
         $regions = array();
 
@@ -76,9 +76,9 @@ class Records extends AbstractRage4DNS
 
     public function getRecords($recordID)
     {
-        $this->apiUrl = sprintf("%s/%s/%d", $this->apiUrl, self::URL_RECORDS, $recordID);
+        $url = sprintf("%s/%s/%d", $this->apiUrl, self::URL_RECORDS, $recordID);
 
-        $response = $this->processQuery();
+        $response = $this->processQuery($url);
 
         $records = array();
 
@@ -101,9 +101,9 @@ class Records extends AbstractRage4DNS
         if (!$domainID) {
             throw new \Exception('Cannot create record. Domain ID is missing');
         }
-        $this->apiUrl = sprintf("%s/%s/%d", $this->apiUrl, self::URL_CREATE_RECORD, $domainID);
+        $url = sprintf("%s/%s/%d", $this->apiUrl, self::URL_CREATE_RECORD, $domainID);
 
-        $response = $this->processQuery(null, array(
+        $response = $this->processQuery($url, null, array(
                 'query' => $record->toArray()
             ));
 
@@ -116,9 +116,9 @@ class Records extends AbstractRage4DNS
             throw new \Exception('Cannot create record. Record ID is missing');
         }
 
-        $this->apiUrl = sprintf("%s/%s/%d", $this->apiUrl, self::URL_UPDATE_RECORD, $record->getId());
+        $url = sprintf("%s/%s/%d", $this->apiUrl, self::URL_UPDATE_RECORD, $record->getId());
 
-        $response = $this->processQuery(null, array(
+        $response = $this->processQuery($url, null, array(
                 'query' => $record->toArray()
             ));
 
@@ -127,9 +127,9 @@ class Records extends AbstractRage4DNS
 
     public function deleteRecord($recordID)
     {
-        $this->apiUrl = sprintf("%s/%s/%d", $this->apiUrl, self::URL_DELETE_RECORD, $recordID);
+        $url = sprintf("%s/%s/%d", $this->apiUrl, self::URL_DELETE_RECORD, $recordID);
 
-        $response = $this->processQuery();
+        $response = $this->processQuery($url);
 
         return Status::createFromArray($response);
     }

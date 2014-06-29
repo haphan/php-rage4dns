@@ -76,10 +76,10 @@ abstract class AbstractRage4DNS
      * @return array|null
      * @throws \Exception
      */
-    public function processQuery($headers = array(), $options = array())
+    public function processQuery($url, $headers = array(), $options = array())
     {
         $request = $this->client->get(
-            $this->apiUrl,
+            $url,
             $headers,
             $options
         );
