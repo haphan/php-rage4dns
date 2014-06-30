@@ -523,7 +523,7 @@ class Record implements TableRowInterface
         $r->setPriority($array['priority']);
         $r->setDomainId($array['domain_id']);
         $r->setGeoRegionId($array['geo_region_id']);
-        $r->setGeoLock($array['geo_lock']);
+        $r->setGeoLock(null);
         $r->setGeoLong($array['geo_long']);
         $r->setGeoLat($array['geo_lat']);
         $r->setFailoverEnabled($array['failover_enabled']);
